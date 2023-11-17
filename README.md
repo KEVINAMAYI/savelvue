@@ -3,7 +3,7 @@
 ### To setup this project successfully, you need
 
 - **[Composer For PHP Dependencies](https://getcomposer.org/)**
-- **[PHP 8.1 Minimun requirement for Laravel 10](https://www.apachefriends.org/download.html)**
+- **[PHP 8.0 Minimun requirement for Laravel 9](https://www.apachefriends.org/download.html)**
 - **[MYSQL For Managing the database](https://www.apachefriends.org/download.html/)**
 
 
