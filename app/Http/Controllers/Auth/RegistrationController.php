@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use Sentinel;
-use Exception;
 use Activation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;

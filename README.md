@@ -60,10 +60,11 @@ php artisan serve
 ```
 ![Cloning the Project](/installation_files/auth_scaffold_6.PNG "Start server").
 
+# Savelvue Testing with POSTMAN
 
-## 5. Importing JSON collection for testing APIS
+## 5. Importing JSON collection to POSTMAN for testing APIS
 
-- Copy this JSON and save it in a file with a name eg. savelvue.postman_collection.
+- Copy this JSON and save it in a file with a name eg. savelvue.postman_collection. Import the JSON file to postman collection as shown.
 
 ```
 {
@@ -290,3 +291,74 @@ php artisan serve
 	]
 }
 ```
+
+![Cloning the Project](/installation_files/auth_scaffold_19.PNG "Start server").
+![Cloning the Project](/installation_files/auth_scaffold_20.PNG "Start server").
+![Cloning the Project](/installation_files/auth_scaffold_21.PNG "Start server").
+
+
+
+## 7. Registering The User
+
+- To register a user simply sent a POST request with first_name,last_name,email,password and password confirmation. This will register the user and sent an activation link to the user's email. Make sure that you have configured the email in the .env to send email.
+
+![Cloning the Project](/installation_files/auth_scaffold_8.PNG "Start server").
+
+- You will receive an email with a link to activate the account. 
+
+![Cloning the Project](/installation_files/auth_scaffold_10.PNG "Start server").
+
+- When the user clicks the link, the base url for the link should be you FRONT_END_URL that will receive the email and activation code passed through the url and send it back the activation code with the email to the /activate endpoint in the BACK_END for activating the account.
+
+![Cloning the Project](/installation_files/auth_scaffold_11.PNG "Start server").
+
+- In my case I will send the action code and email manually via the APIs to activate the user.
+
+![Cloning the Project](/installation_files/auth_scaffold_12.PNG "Start server").
+
+## 7. Login The User
+
+- Once registered and activated, the user can login. The API will return the logged in user and an access token to be used on the FRONT_END to verify the logged in user.
+
+![Cloning the Project](/installation_files/auth_scaffold_13.PNG "Start server").
+
+![Cloning the Project](/installation_files/auth_scaffold_14.PNG "Start server").
+
+## 7. Resetting Password
+
+- To reset a password, the user needs to receive a password reset link with a password reset code that will be used to reset the password. As such we have to send a password reset code to the user using the send-password-code API.
+
+![Cloning the Project](/installation_files/auth_scaffold_15.PNG "Start server").
+
+- The user will receive an email with a link to reset the password. 
+
+![Cloning the Project](/installation_files/auth_scaffold_16.PNG "Start server").
+
+- When the user clicks the link, the base url for the link should be you FRONT_END_URL that will receive the email and password reset code passed through the url and send it back to the BACK_END for reseting the password.
+
+![Cloning the Project](/installation_files/auth_scaffold_17.PNG "Start server").
+
+- The FRONT_END should sent the password reset code along with other details to reset the password on the /reset-password endpoint. The  details required to reset password are the reset password code, password, password_confirmation and email.
+
+- In my case I will send this data manually 
+
+![Cloning the Project](/installation_files/auth_scaffold_18.PNG "Start server").
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
