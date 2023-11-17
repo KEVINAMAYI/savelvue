@@ -16,6 +16,7 @@
 git clone https://github.com/KEVINAMAYI/savelvue.git 
 ```
 
+
 ![Cloning the Project](/installation_files/auth_scaffold_1.PNG "Cloning the Project").
 
 ## 2. Install Dependencies
@@ -29,7 +30,16 @@ composer install
 ![Cloning the Project](/installation_files/auth_scaffold_2.PNG "Installing Dependencies").
 
 
-## 3. Configure Database and Run Migrations
+## 3. Add HasApiTokens to EloquentUser
+
+- EloquentUser is the user being used by Sentinel, Add the Trait HasApiTokens so that Sentinel Users can be able to use Sanctum token as normal users.
+- EloquentUser is located inside vendor\cartalyst\sentinel\src\Users\EloquentUsers.php
+
+![Cloning the Project](/installation_files/auth_scaffold_22.PNG "Add HasApiTokens to EloquentUser").
+
+
+
+## 4. Configure Database and Run Migrations
 
 - Rename .env-example to .env
 - Add database details to the .env ( Make sure to create the dabase or you can create it during migration ).
@@ -42,7 +52,7 @@ composer install
 ![Cloning the Project](/installation_files/auth_scaffold_5.PNG "Migrate the table").
 
 
-## 3. Configure Mail for Sending Emails
+## 5. Configure Mail for Sending Emails
 
 - Configure Mail Data for Sending account activation code email and password reset code email. In my I am using smtp, host, port 465, and tls
 
@@ -52,7 +62,7 @@ composer install
 
 
 
-## 4. Start Backend Server
+## 6. Start Backend Server
 - Start the serve by running the command below. Don't close the serve as this will be required to be used by the frontend server.
 
 ```
@@ -62,7 +72,7 @@ php artisan serve
 
 # Savelvue Testing with POSTMAN
 
-## 5. Importing JSON collection to POSTMAN for testing APIS
+## 7. Importing JSON collection to POSTMAN for testing APIS
 
 - Copy this JSON and save it in a file with a name eg. savelvue.postman_collection.json Import the JSON file to postman collection as shown.
 
@@ -298,7 +308,7 @@ php artisan serve
 
 
 
-## 7. Registering The User
+## 8. Registering The User
 
 - To register a user simply sent a POST request with first_name,last_name,email,password and password confirmation. This will register the user and sent an activation link to the user's email. Make sure that you have configured the email in the .env to send email.
 
@@ -316,7 +326,7 @@ php artisan serve
 
 ![Cloning the Project](/installation_files/auth_scaffold_12.PNG "Start server").
 
-## 7. Login The User
+## 9. Login The User
 
 - Once registered and activated, the user can login. The API will return the logged in user and an access token to be used on the FRONT_END to verify the logged in user.
 
@@ -324,7 +334,7 @@ php artisan serve
 
 ![Cloning the Project](/installation_files/auth_scaffold_14.PNG "Start server").
 
-## 7. Resetting Password
+## 10. Resetting Password
 
 - To reset a password, the user needs to receive a password reset link with a password reset code that will be used to reset the password. As such we have to send a password reset code to the user using the send-password-code API.
 
