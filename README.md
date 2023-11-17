@@ -33,7 +33,7 @@ composer install
 
 - Rename .env-example to .env
 - Add database details to the .env ( Make sure to create the dabase or you can create it during migration ).
-- Add a FRONT_END_URL in the env, it will be used to receive the account activation code and the password
+- Add a FRONT_END_URL in the env, it will be used to receive the account activation and password reset code 
 - Run migration to migrate the tables
 
 ![Cloning the Project](/installation_files/auth_scaffold_3.PNG "Rename .env-example to .env").
@@ -64,7 +64,7 @@ php artisan serve
 
 ## 5. Importing JSON collection to POSTMAN for testing APIS
 
-- Copy this JSON and save it in a file with a name eg. savelvue.postman_collection. Import the JSON file to postman collection as shown.
+- Copy this JSON and save it in a file with a name eg. savelvue.postman_collection.json Import the JSON file to postman collection as shown.
 
 ```
 {
