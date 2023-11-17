@@ -42,6 +42,14 @@ composer install
 ![Cloning the Project](/installation_files/auth_scaffold_5.PNG "Migrate the table").
 
 
+## 3. Configure Mail for Sending Emails
+
+- Configure Mail Data for Sending account activation code email and password reset code email. In my I am using smtp, host, port 465, and tls
+
+![Cloning the Project](/installation_files/auth_scaffold_9.PNG "Rename .env-example to .env").
+
+
+
 
 
 ## 4. Start Backend Server
