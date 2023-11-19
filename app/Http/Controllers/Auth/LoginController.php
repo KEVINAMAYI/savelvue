@@ -19,7 +19,7 @@ class LoginController extends Controller
                                          : $user = Sentinel::authenticate($request->validated());
 
             if (!Sentinel::check()) {
-                return response(['error' => 'Credential not Found'], Response::HTTP_UNAUTHORIZED);
+                return response(['error' => 'Credentials not Found'], Response::HTTP_UNAUTHORIZED);
             }
 
             $token = $user->createToken('access_token');

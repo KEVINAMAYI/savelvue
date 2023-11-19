@@ -19,7 +19,7 @@ class ForgotPasswordController extends Controller
         $user = User::whereEmail($request->input('email'))->get();
 
         if (count($user) == 0) {
-            return response(['error' => 'No account existS with such email', Response::HTTP_UNAUTHORIZED]);
+            return response(['error' => 'No account existS with such email'], Response::HTTP_UNAUTHORIZED);
         }
 
         $reminder = Reminder::create(Sentinel::findById($user[0]->id));

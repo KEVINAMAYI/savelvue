@@ -20,7 +20,7 @@ class RegistrationController extends Controller
 
             $this->sendActivationEmail($user, $activation->code);
 
-            return response(['message' => 'Activation Code Has been Send to your Email,Please check your Email'], Response::HTTP_OK);
+            return response(['message' => 'Account activation link Has been Send to your Email, Please check your Email'], Response::HTTP_OK);
 
 
     }
