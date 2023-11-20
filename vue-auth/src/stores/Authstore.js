@@ -22,6 +22,7 @@ export const useAuthStore = defineStore("auth", {
                 await axios.post('/register', data).then((res) => {
                     this.isLoading = false;
                     this.success.message = res.data.message;
+                    this.scrollToTop()
                     this.clearAlert();
 
                 });
@@ -30,6 +31,7 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = false;
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors
+                    this.scrollToTop()
                     this.clearAlert();
                 }
             }
@@ -42,6 +44,7 @@ export const useAuthStore = defineStore("auth", {
                     this.isLoading = false;
                     this.success.message = res.data.message;
                     router.push({name: "login"});
+                    this.scrollToTop()
                     this.clearAlert();
 
                 });
@@ -50,6 +53,7 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = false;
                 if (error.response.status === 500) {
                     this.errors.error = error.response.data.error
+                    this.scrollToTop()
                     this.clearAlert();
                 }
             }
@@ -68,10 +72,12 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = false;
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors
+                    this.scrollToTop()
                     this.clearAlert();
                 }
                 if (error.response.status === 401) {
                     this.errors.error = error.response.data.error
+                    this.scrollToTop()
                     this.clearAlert();
 
                 }
@@ -90,12 +96,14 @@ export const useAuthStore = defineStore("auth", {
                 await axios.post('/send-password-reset-code', data).then((res) => {
                     this.isLoading = false;
                     this.success.message = res.data.message;
+                    this.scrollToTop()
                     this.clearAlert();
                 });
             } catch (error) {
                 this.isLoading = false;
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors
+                    this.scrollToTop()
                     this.clearAlert();
                 }
             }
@@ -107,6 +115,7 @@ export const useAuthStore = defineStore("auth", {
                     this.isLoading = false;
                     this.success.message = res.data.message;
                     router.push({name: "login"})
+                    this.scrollToTop()
                     this.clearAlert();
 
                 });
@@ -115,18 +124,23 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = false;
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors
+                    this.scrollToTop()
                     this.clearAlert();
                 }
 
                 if (error.response.status === 500) {
                     this.errors.error = error.response.data.error
+                    this.scrollToTop()
                     this.clearAlert();
                 }
             }
         },
         clearAlert() {
-            setTimeout(() => this.errors = {}, 5000);
-            setTimeout(() => this.success = {}, 5000);
+            setTimeout(() => this.errors = {}, 8000);
+            setTimeout(() => this.success = {}, 8000);
+        },
+        scrollToTop() {
+            window.scrollTo(0,0);
         }
     },
 });
