@@ -2,14 +2,6 @@
 <img  src="installation_files/main_logo.PNG">
 </p>
 
-
-<p align='center'>
-   <a href="#apis">INSTALL APs</a></br>
-   <a>INSTALL VueJS Scaffold</a>
-</p>
-
-
-
 # About Savelvue
 
 Laravel is an authentication scaffold with expressive, elegant installation process. We believe development must be an enjoyable and creative experience to be truly fulfilling. Savelvue takes the pain out of development by providing an easy to install scaffold for authentication.
