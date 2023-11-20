@@ -1,4 +1,73 @@
-![Cloning the Project](/installation_files/main_logo.PNG "Cloning the Project").
+<p align="center">
+<img  src="installation_files/main_logo.PNG">
+</p>
+
+<style>
+.btn1{
+
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #fff;
+background-color: #0066CC;
+padding: 10px 30px;
+border: 2px solid #0066cc;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 50px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+margin-bottom : 15px;
+}
+
+.btn2{
+
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #fff;
+background-color: purple;
+padding: 10px 30px;
+border: 2px solid purple;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 50px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+margin-bottom : 15px;
+}
+
+a:hover{
+  background-color: #fff;
+  color: #0066cc;
+}
+
+.btn:hover{
+
+transition : 1000ms;
+padding: 10px 50px;
+transform : translateY(-0px);
+background-color: #fff;
+color: #0066cc;
+border: solid 2px #0066cc;
+}
+
+</style>
+
+<p align='center'>
+<button class='btn btn1' >
+   <a href="#apis">DOWNLOAD APs</a>
+</button>
+<button  class='btn btn2'>
+ <a>DOWNLOAD VueJS Scaffold</a>
+</button>
+</p>
 
 
 
@@ -31,6 +100,7 @@ We would like to extend our thanks to the following sponsors for supporting Save
 - **Laravel Kenya**
 
 
+<section id="apis"></section>
 
 
 #  Vulnerabilities
