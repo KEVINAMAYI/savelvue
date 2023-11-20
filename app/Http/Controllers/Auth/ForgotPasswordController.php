@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Reminder;
-use Sentinel;
-use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\SendPasswordResetCodeRequest;
+use App\Mail\ForgotPassword;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use Reminder;
+use Sentinel;
 use Symfony\Component\HttpFoundation\Response;
 
 class ForgotPasswordController extends Controller
@@ -23,27 +24,13 @@ class ForgotPasswordController extends Controller
         }
 
         $reminder = Reminder::create(Sentinel::findById($user[0]->id));
+        $reminderCode = $reminder->code;
 
-        $this->sendForgotPasswordEmail($user, $reminder->code);
+        Mail::to($user->email)->send(new ForgotPassword($reminderCode, $user));
 
-        return response(['message' => 'Password Reset code has been send to your email'
+        return response(['message' => 'Password Reset code has been send to your email',
         ], Response::HTTP_OK);
 
-    }
-
-
-    private function sendForgotPasswordEmail($user, $code)
-    {
-        $first_name = $user[0]->first_name;
-
-        Mail::send('emails.forgot_password', [
-            'user' => $user,
-            'reminderCode' => $code,
-            'first_name' => $first_name
-        ], function ($message) use ($user, $first_name) {
-            $message->to($user[0]->email);
-            $message->subject("Hello $first_name Reset your Password");
-        });
     }
 
     public function resetPassword(ResetPasswordRequest $request)
