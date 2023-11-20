@@ -4,8 +4,8 @@
 
 
 <p align='center'>
-   <a href="#apis">DOWNLOAD APs</a></br>
-   <a>DOWNLOAD VueJS Scaffold</a>
+   <a href="#apis">INSTALL APs</a></br>
+   <a>INSTALL VueJS Scaffold</a>
 </p>
 
 
