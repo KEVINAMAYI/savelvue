@@ -1,3 +1,44 @@
+![Cloning the Project](/installation_files/main_logo.PNG "Cloning the Project").
+
+
+
+# About Savelvue
+
+Laravel is an authentication scaffold with expressive, elegant installation process. We believe development must be an enjoyable and creative experience to be truly fulfilling. Savelvue takes the pain out of development by providing an easy to install scaffold for authentication.
+
+Advantages of Using Savelvue: 
+
+- [Laravel Sanctum Default Installation](https://laravel.com/docs/9.x/sanctum#main-content).
+- [Laravel Sentinel Package for Managing Role,Permission and OTP setup](https://cartalyst.com/manual/sentinel/6.x).
+- Can be integrated with multiple frontend frameworks such as vue, react and flutter. By default we provide vue for frontend integration.
+
+Savelvue is accessible, powerful, and provides tools required for large, robust applications.
+
+
+# Savelvue Contributors
+
+We would like to extend our thanks to the following sponsors for supporting Savelvue development. If you are interested in becoming a contributor, please email the [kevinamayi20@gmail.com](mailto:kevinamayi20@gmail.com).
+
+- **Patrick Waweru**
+- **Japheth Nyaranga**
+- **Collins Rono**
+- **Dennis Ngugi**
+
+
+# Partners
+
+- **[Techqast](https://techqast.co.ke/)**
+- **Laravel Kenya**
+
+
+
+
+#  Vulnerabilities
+
+If you discover a vulnerability within Savelvue, please send an e-mail to Kevin Amayi Amayi via [kevinamayi20@gmail.com](mailto:kevinamayi20@gmail.com). All vulnerabilities will be promptly addressed.
+
+
+
 # Savelvue Setup
 
 ### To setup this project successfully, you need
@@ -5,7 +46,7 @@
 - **[Composer For PHP Dependencies](https://getcomposer.org/)**
 - **[PHP 8.0 Minimun requirement for Laravel 9](https://www.apachefriends.org/download.html)**
 - **[MYSQL For Managing the database](https://www.apachefriends.org/download.html/)**
-
+- **[If you wish to Install Frontend for Vue you need Node For installing Vue Dependencies ](https://nodejs.org/en/)**
 
 
 
