@@ -3,6 +3,8 @@ import './assets/style.css'
 import './axios'
 import {createApp} from 'vue'
 import {createPinia} from 'pinia'
+import piniaPersist from 'pinia-plugin-persist'
+
 
 import App from './App.vue'
 import router from './router'
@@ -10,7 +12,10 @@ import router from './router'
 const app = createApp(App)
 
 app.use(router)
-app.use(createPinia())
+const pinia = createPinia()
+pinia.use(piniaPersist)
+
+app.use(pinia)
 
 
 router.beforeEach((to, from, next) => {

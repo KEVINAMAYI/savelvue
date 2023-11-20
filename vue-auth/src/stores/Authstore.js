@@ -21,8 +21,8 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = true;
                 await axios.post('/register', data).then((res) => {
                     this.isLoading = false;
+                    this.scrollUp();
                     this.success.message = res.data.message;
-                    this.scrollToTop()
                     this.clearAlert();
 
                 });
@@ -30,8 +30,8 @@ export const useAuthStore = defineStore("auth", {
 
                 this.isLoading = false;
                 if (error.response.status === 422) {
+                    this.scrollUp();
                     this.errors = error.response.data.errors
-                    this.scrollToTop()
                     this.clearAlert();
                 }
             }
@@ -42,9 +42,9 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = true
                 await axios.post('/activate', data).then((res) => {
                     this.isLoading = false;
+                    this.scrollUp();
                     this.success.message = res.data.message;
                     router.push({name: "login"});
-                    this.scrollToTop()
                     this.clearAlert();
 
                 });
@@ -52,8 +52,8 @@ export const useAuthStore = defineStore("auth", {
 
                 this.isLoading = false;
                 if (error.response.status === 500) {
+                    this.scrollUp();
                     this.errors.error = error.response.data.error
-                    this.scrollToTop()
                     this.clearAlert();
                 }
             }
@@ -63,21 +63,21 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = true;
                 await axios.post('/login', data).then((res) => {
                     this.isLoading = false;
+                    this.scrollUp();
                     this.token = res.data.access_token;
                     this.user = res.data.user;
                     router.push({name: "dashboard"})
                 });
             } catch (error) {
-
+               console.log(error);
                 this.isLoading = false;
                 if (error.response.status === 422) {
+                    this.scrollUp();
                     this.errors = error.response.data.errors
-                    this.scrollToTop()
                     this.clearAlert();
                 }
                 if (error.response.status === 401) {
                     this.errors.error = error.response.data.error
-                    this.scrollToTop()
                     this.clearAlert();
 
                 }
@@ -95,15 +95,15 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = true;
                 await axios.post('/send-password-reset-code', data).then((res) => {
                     this.isLoading = false;
+                    this.scrollUp();
                     this.success.message = res.data.message;
-                    this.scrollToTop()
                     this.clearAlert();
                 });
             } catch (error) {
                 this.isLoading = false;
                 if (error.response.status === 422) {
+                    this.scrollUp();
                     this.errors = error.response.data.errors
-                    this.scrollToTop()
                     this.clearAlert();
                 }
             }
@@ -113,9 +113,9 @@ export const useAuthStore = defineStore("auth", {
                 this.isLoading = true;
                 await axios.post('/reset-password', data).then((res) => {
                     this.isLoading = false;
+                    this.scrollUp();
                     this.success.message = res.data.message;
                     router.push({name: "login"})
-                    this.scrollToTop()
                     this.clearAlert();
 
                 });
@@ -123,24 +123,27 @@ export const useAuthStore = defineStore("auth", {
 
                 this.isLoading = false;
                 if (error.response.status === 422) {
+                    this.scrollUp();
                     this.errors = error.response.data.errors
-                    this.scrollToTop()
                     this.clearAlert();
                 }
 
                 if (error.response.status === 500) {
+                    this.scrollUp();
                     this.errors.error = error.response.data.error
-                    this.scrollToTop()
                     this.clearAlert();
                 }
             }
         },
         clearAlert() {
-            setTimeout(() => this.errors = {}, 8000);
-            setTimeout(() => this.success = {}, 8000);
+            setTimeout(() => this.errors = {}, 5000);
+            setTimeout(() => this.success = {}, 5000);
         },
-        scrollToTop() {
-            window.scrollTo(0,0);
+        scrollUp(){
+            window.scrollTo(0, 0);
         }
     },
+    persist: {
+        enabled: true
+    }
 });

@@ -47,7 +47,7 @@ If you discover a vulnerability within Savelvue, please send an e-mail to Kevin 
 - **[Composer For PHP Dependencies](https://getcomposer.org/)**
 - **[PHP 8.0 Minimun requirement for Laravel 9](https://www.apachefriends.org/download.html)**
 - **[MYSQL For Managing the database](https://www.apachefriends.org/download.html/)**
-- **[If you wish to Install Frontend for Vue you need Node For installing Vue Dependencies ](https://nodejs.org/en/)**
+- **[Node For installing Vue Dependencies](https://nodejs.org/en/)**
 
 
 
@@ -69,7 +69,7 @@ git clone https://github.com/KEVINAMAYI/savelvue.git
 composer install 
 ```
 
-![Cloning the Project](/installation_files/auth_scaffold_2.PNG "Installing Dependencies").
+![Installing Dependencies](/installation_files/auth_scaffold_2.PNG "Installing Dependencies").
 
 
 ## 3. Add HasApiTokens to EloquentUser
@@ -77,7 +77,7 @@ composer install
 - EloquentUser is the user being used by Sentinel, Add the Trait HasApiTokens so that Sentinel Users can be able to use Sanctum token as normal users.
 - EloquentUser is located inside vendor\cartalyst\sentinel\src\Users\EloquentUsers.php
 
-![Cloning the Project](/installation_files/auth_scaffold_22.PNG "Add HasApiTokens to EloquentUser").
+![Eloquent User](/installation_files/auth_scaffold_22.PNG "Add HasApiTokens to EloquentUser").
 
 
 
@@ -88,17 +88,17 @@ composer install
 - Add a FRONT_END_URL in the env, it will be used to receive the account activation and password reset code 
 - Run migration to migrate the tables
 
-![Cloning the Project](/installation_files/auth_scaffold_3.PNG "Rename .env-example to .env").
-![Cloning the Project](/installation_files/auth_scaffold_4.PNG "Add Database details").
-![Cloning the Project](/installation_files/auth_scaffold_7.PNG "Add FRONT_END_URL to .env").
-![Cloning the Project](/installation_files/auth_scaffold_5.PNG "Migrate the table").
+![.env](/installation_files/auth_scaffold_3.PNG ".env").
+![.env](/installation_files/auth_scaffold_4.PNG ".env").
+![.env](/installation_files/auth_scaffold_7.PNG ".env").
+![.env](/installation_files/auth_scaffold_5.PNG ".env").
 
 
 ## 5. Configure Mail for Sending Emails
 
 - Configure Mail Data for Sending account activation code email and password reset code email. In my I am using smtp, host, port 465, and tls
 
-![Cloning the Project](/installation_files/auth_scaffold_9.PNG "Rename .env-example to .env").
+![Mail Configuration](/installation_files/auth_scaffold_9.PNG "Mail Configuration").
 
 
 
@@ -110,7 +110,7 @@ composer install
 ```
 php artisan serve
 ```
-![Cloning the Project](/installation_files/auth_scaffold_6.PNG "Start server").
+![Start Server](/installation_files/auth_scaffold_6.PNG "Start Server").
 
 # Savelvue Testing with POSTMAN
 
@@ -344,9 +344,9 @@ php artisan serve
 }
 ```
 
-![Cloning the Project](/installation_files/auth_scaffold_19.PNG "Start server").
-![Cloning the Project](/installation_files/auth_scaffold_20.PNG "Start server").
-![Cloning the Project](/installation_files/auth_scaffold_21.PNG "Start server").
+![Postman Testing](/installation_files/auth_scaffold_19.PNG "Postman Testing").
+![Postman Testing](/installation_files/auth_scaffold_20.PNG "Postman Testing").
+![Postman Testing](/installation_files/auth_scaffold_21.PNG "Postman Testing").
 
 
 
@@ -354,47 +354,111 @@ php artisan serve
 
 - To register a user simply sent a POST request with first_name,last_name,email,password and password confirmation. This will register the user and sent an activation link to the user's email. Make sure that you have configured the email in the .env to send email.
 
-![Cloning the Project](/installation_files/auth_scaffold_8.PNG "Start server").
+![Registration](/installation_files/auth_scaffold_8.PNG "Registration").
 
 - You will receive an email with a link to activate the account. 
 
-![Cloning the Project](/installation_files/auth_scaffold_10.PNG "Start server").
+![Registration](/installation_files/auth_scaffold_10.PNG "Registration").
 
 - When the user clicks the link, the base url for the link should be you FRONT_END_URL that will receive the email and activation code passed through the url and send it back the activation code with the email to the /activate endpoint in the BACK_END for activating the account.
 
-![Cloning the Project](/installation_files/auth_scaffold_11.PNG "Start server").
+![Registration](/installation_files/auth_scaffold_11.PNG "Registration").
 
 - In my case I will send the action code and email manually via the APIs to activate the user.
 
-![Cloning the Project](/installation_files/auth_scaffold_12.PNG "Start server").
+![Registration](/installation_files/auth_scaffold_12.PNG "Registration").
 
 ## 9. Login The User
 
 - Once registered and activated, the user can login. The API will return the logged in user and an access token to be used on the FRONT_END to verify the logged in user.
 
-![Cloning the Project](/installation_files/auth_scaffold_13.PNG "Start server").
+![Login](/installation_files/auth_scaffold_13.PNG "Login").
 
-![Cloning the Project](/installation_files/auth_scaffold_14.PNG "Start server").
+![Login](/installation_files/auth_scaffold_14.PNG "Login").
 
 ## 10. Resetting Password
 
 - To reset a password, the user needs to receive a password reset link with a password reset code that will be used to reset the password. As such we have to send a password reset code to the user using the send-password-code API.
 
-![Cloning the Project](/installation_files/auth_scaffold_15.PNG "Start server").
+![Password Reset](/installation_files/auth_scaffold_15.PNG "Password Reset").
 
 - The user will receive an email with a link to reset the password. 
 
-![Cloning the Project](/installation_files/auth_scaffold_16.PNG "Start server").
+![Password Reset](/installation_files/auth_scaffold_16.PNG "Password Reset").
 
 - When the user clicks the link, the base url for the link should be you FRONT_END_URL that will receive the email and password reset code passed through the url and send it back to the BACK_END for reseting the password.
 
-![Cloning the Project](/installation_files/auth_scaffold_17.PNG "Start server").
+![Password Reset](/installation_files/auth_scaffold_17.PNG "Password Reset").
 
 - The FRONT_END should sent the password reset code along with other details to reset the password on the /reset-password endpoint. The  details required to reset password are the reset password code, password, password_confirmation and email.
 
 - In my case I will send this data manually 
 
-![Cloning the Project](/installation_files/auth_scaffold_18.PNG "Start server").
+![Password Reset](/installation_files/auth_scaffold_18.PNG "Password Reset").
+
+
+# VueJS Setup
+
+## 1. CD into the vue-auth folder and the run npm install to install dependencies
+
+![Run npm](/installation_files/auth_scaffold_23.PNG "Run npm").
+
+
+## 2. run npm run dev to start the server at port 3000
+
+![Run npm](/installation_files/auth_scaffold_24.PNG "Run npm").
+
+
+## 3. Access the site at localhost:3000
+
+![Accessing site](/installation_files/auth_scaffold_25.PNG "Accessing site").
+
+
+## 3. Sign up b clicking the sign up button
+
+![Sign up](/installation_files/auth_scaffold_26.PNG "Sign up").
+
+
+## 3. Account activation link will be sent to your email
+
+![Account Activation](/installation_files/auth_scaffold_27.PNG "Account Activation").
+
+![Account Activation](/installation_files/auth_scaffold_28.PNG "Account Activation").
+
+## 3. On Activating the account, you can login
+
+![Account Activation](/installation_files/auth_scaffold_29.PNG "Account Activation").
+
+![Account Activation](/installation_files/auth_scaffold_30.PNG "Account Activation").
+
+![Account Activation](/installation_files/auth_scaffold_31.PNG "Account Activation").
+
+## 3. Password Reset
+
+![Password Reset](/installation_files/auth_scaffold_32.PNG "Password Reset").
+
+![Password Reset](/installation_files/auth_scaffold_33.PNG "Password Reset").
+
+![Password Reset](/installation_files/auth_scaffold_34.PNG "Password Reset").
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
