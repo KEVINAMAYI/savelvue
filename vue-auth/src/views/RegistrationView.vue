@@ -1,11 +1,6 @@
 <script setup>
 import {onMounted, ref} from "vue";
 import {useAuthStore} from '../stores/Authstore.js';
-import {Toast, initTE,} from "tw-elements";
-
-onMounted(() => {
-  initTE({Toast});
-});
 
 const authStore = useAuthStore();
 

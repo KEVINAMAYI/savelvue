@@ -34,7 +34,7 @@ class SignUp extends Mailable implements ShouldQueue
     public function envelope()
     {
         return new Envelope(
-            from: new Address('info@techqast.com', 'TeachQast'),
+            from: new Address('info@techqast.co.ke', 'TechQast'),
             subject: 'Sign Up',
         );
     }
