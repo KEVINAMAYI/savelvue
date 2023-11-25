@@ -4,7 +4,6 @@ use App\Http\Controllers\Auth\ActivationController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegistrationController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,19 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/register',[RegistrationController::class, 'register']);
-Route::post('/activate',[ActivationController::class, 'activate']);
-Route::post('/login',[LoginController::class, 'login']);
-Route::post('/send-password-reset-code',[ForgotPasswordController::class, 'sendPasswordResetCode']);
-Route::post('/reset-password',[ForgotPasswordController::class, 'resetPassword']);
+Route::post('/register', [RegistrationController::class, 'register']);
+Route::post('/activate', [ActivationController::class, 'activate']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/send-password-reset-code', [ForgotPasswordController::class, 'sendPasswordResetCode']);
+Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword']);
 
-Route::middleware(['auth:sanctum'])->group(function(){
-    Route::get('/logout',[LoginController::class,'logout']);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/logout', [LoginController::class, 'logout']);
 });
 
-
 //Trying to access a non-existing page
-Route::fallback(function(){
+Route::fallback(function () {
     return response()->json([
         'message' => 'Page Not Found. If error persists, contact info@techqast.co.ke'], 404);
 });

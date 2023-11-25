@@ -25,7 +25,7 @@ class AccountActivationRequest extends FormRequest
     {
         return [
             'email' => 'required',
-            'activation_code' => 'required'
+            'activation_code' => 'required',
         ];
     }
 }

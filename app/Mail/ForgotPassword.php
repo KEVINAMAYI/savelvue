@@ -3,14 +3,13 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ForgotPassword extends Mailable implements ShouldQueue
+class ForgotPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -46,7 +45,7 @@ class ForgotPassword extends Mailable implements ShouldQueue
     public function content()
     {
         return new Content(
-            view: 'email.forgot_password',
+            view: 'emails.forgot_password',
         );
     }
 
