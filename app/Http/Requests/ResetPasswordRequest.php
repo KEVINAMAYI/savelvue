@@ -27,7 +27,7 @@ class ResetPasswordRequest extends FormRequest
             'email' => 'required',
             'reset_password_code' => 'required',
             'password' => 'required|min:6',
-            'password_confirmation' => 'required_with:password|same:password|min:6'
+            'password_confirmation' => 'required_with:password|same:password|min:6',
         ];
     }
 }

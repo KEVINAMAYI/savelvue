@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\AccountActivationRequest;
-use Sentinel;
 use Activation;
-use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AccountActivationRequest;
+use App\Models\User;
+use Sentinel;
 use Symfony\Component\HttpFoundation\Response;
 
 class ActivationController extends Controller

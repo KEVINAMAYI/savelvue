@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Sentinel;
-use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
+use App\Http\Requests\LoginRequest;
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
+use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
+use Sentinel;
+use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
 {
@@ -18,7 +18,7 @@ class LoginController extends Controller
             isset($request->remember_me) ? $user = Sentinel::authenticate($request->validated(), true)
                                          : $user = Sentinel::authenticate($request->validated());
 
-            if (!Sentinel::check()) {
+            if (! Sentinel::check()) {
                 return response(['error' => 'Credentials not Found'], Response::HTTP_UNAUTHORIZED);
             }
 
@@ -26,31 +26,30 @@ class LoginController extends Controller
 
             return response([
                 'user' => $user,
-                'access_token' => $token->plainTextToken
+                'access_token' => $token->plainTextToken,
             ], Response::HTTP_OK);
 
         } catch (ThrottlingException $throttlingException) {
 
             $delay = $throttlingException->getDelay();
+
             return response([
-                'error' => "You are banned for $delay seconds"
+                'error' => "You are banned for $delay seconds",
             ], Response::HTTP_UNAUTHORIZED);
 
-        } catch (NotActivatedException $notActivatedException){
+        } catch (NotActivatedException $notActivatedException) {
 
             return response([
-                'error' => "Your account is not activated"
+                'error' => 'Your account is not activated',
             ], Response::HTTP_UNAUTHORIZED);
         }
 
     }
 
-
     public function logout()
     {
         auth()->user()->tokens()->delete();
-        return response(['message' => 'Logout Successful'],Response::HTTP_OK);
+
+        return response(['message' => 'Logout Successful'], Response::HTTP_OK);
     }
-
-
 }
